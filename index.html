@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ScamShield AI | Scam Message Detector</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <div class="logo-icon">🛡️</div>
+
+        <div>
+            <h2>ScamShield <span>AI</span></h2>
+            <p>Smart Message Protection</p>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#detector">Detector</a>
+        <a href="#how">How It Works</a>
+        <a href="#about">About</a>
+    </nav>
+
+    <button class="nav-btn" onclick="scrollToDetector()">
+        Scan Message
+    </button>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            <span class="pulse"></span>
+            AI-Powered Scam Protection
+        </div>
+
+        <h1>
+            Don't Get Tricked.<br>
+            <span>Detect Scams Instantly.</span>
+        </h1>
+
+        <p>
+            Analyze suspicious SMS, WhatsApp and email messages
+            using intelligent scam detection technology.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button class="primary-btn" onclick="scrollToDetector()">
+                🔍 Check a Message
+            </button>
+
+            <button class="secondary-btn" onclick="scrollToHow()">
+                Learn How It Works →
+            </button>
+
+        </div>
+
+        <div class="trust-row">
+
+            <div>
+                <strong>24/7</strong>
+                <small>Protection</small>
+            </div>
+
+            <div>
+                <strong>AI</strong>
+                <small>Powered</small>
+            </div>
+
+            <div>
+                <strong>3</strong>
+                <small>Risk Levels</small>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Hero Visual -->
+
+    <div class="hero-card">
+
+        <div class="scanner-card">
+
+            <div class="scanner-top">
+
+                <span>SCAM SHIELD</span>
+
+                <div class="status">
+                    <span class="green-dot"></span>
+                    ACTIVE
+                </div>
+
+            </div>
+
+            <div class="shield">
+
+                <div class="shield-circle">
+                    🛡️
+                </div>
+
+            </div>
+
+            <h3>AI Protection Active</h3>
+
+            <p>
+                Your messages are being analyzed
+                for suspicious patterns.
+            </p>
+
+            <div class="scan-line"></div>
+
+            <div class="scan-status">
+                <span>●</span> System Ready
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= DETECTOR ================= -->
+
+<section class="detector-section" id="detector">
+
+    <div class="section-heading">
+
+        <div class="small-title">
+            INTELLIGENT ANALYSIS
+        </div>
+
+        <h2>Check Your Message</h2>
+
+        <p>
+            Paste a suspicious message below and let ScamShield AI
+            analyze it for potential scam indicators.
+        </p>
+
+    </div>
+
+
+    <div class="detector-container">
+
+        <!-- Input -->
+
+        <div class="input-card">
+
+            <div class="card-header">
+
+                <div>
+                    <h3>Message Analyzer</h3>
+                    <p>Paste your SMS, email or message here.</p>
+                </div>
+
+                <span class="secure">
+                    🔒 Secure
+                </span>
+
+            </div>
+
+
+            <textarea
+                id="messageInput"
+                placeholder="Example: Congratulations! You have won ₹50,000. Click this link immediately to claim your prize..."
+            ></textarea>
+
+
+            <div class="input-footer">
+
+                <span id="charCount">
+                    0 characters
+                </span>
+
+                <button class="clear-btn" onclick="clearMessage()">
+                    Clear
+                </button>
+
+            </div>
+
+
+            <button class="analyze-btn" onclick="analyzeMessage()">
+
+                <span>🔍</span>
+                Analyze Message
+
+            </button>
+
+        </div>
+
+
+
+        <!-- Result -->
+
+        <div class="result-card" id="resultCard">
+
+            <div class="result-placeholder" id="placeholder">
+
+                <div class="result-icon">
+                    ✨
+                </div>
+
+                <h3>Ready to Analyze</h3>
+
+                <p>
+                    Your analysis result will appear here.
+                </p>
+
+                <div class="result-tips">
+
+                    <div>✓ Scam pattern detection</div>
+                    <div>✓ Suspicious link detection</div>
+                    <div>✓ Risk classification</div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Actual Result -->
+
+            <div class="analysis-result" id="analysisResult">
+
+                <div class="risk-header">
+
+                    <div id="riskIcon" class="risk-icon">
+                        ⚠️
+                    </div>
+
+                    <div>
+                        <span id="riskLabel">SCAM DETECTED</span>
+                        <h3 id="riskTitle">High Risk Message</h3>
+                    </div>
+
+                </div>
+
+
+                <div class="confidence">
+
+                    <div class="confidence-top">
+
+                        <span>AI Confidence</span>
+
+                        <strong id="confidenceValue">
+                            96%
+                        </strong>
+
+                    </div>
+
+                    <div class="progress">
+                        <div id="progressBar"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="indicators">
+
+                    <h4>Detected Indicators</h4>
+
+                    <div id="indicatorList"></div>
+
+                </div>
+
+
+                <div class="recommendation" id="recommendation">
+
+                    ⚠️ Do not click suspicious links or
+                    share personal information.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= HOW IT WORKS ================= -->
+
+<section class="how-section" id="how">
+
+    <div class="section-heading">
+
+        <div class="small-title">
+            SIMPLE & INTELLIGENT
+        </div>
+
+        <h2>How ScamShield AI Works</h2>
+
+        <p>
+            Four simple steps to protect you from suspicious messages.
+        </p>
+
+    </div>
+
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="step-number">01</div>
+
+            <div class="step-icon">📩</div>
+
+            <h3>Message Input</h3>
+
+            <p>
+                Paste or enter the SMS, email or message
+                you want to check.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">02</div>
+
+            <div class="step-icon">🧹</div>
+
+            <h3>Preprocessing</h3>
+
+            <p>
+                The message is cleaned, normalized
+                and prepared for analysis.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">03</div>
+
+            <div class="step-icon">🧠</div>
+
+            <h3>AI Analysis</h3>
+
+            <p>
+                AI analyzes suspicious patterns,
+                keywords and links.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">04</div>
+
+            <div class="step-icon">🚨</div>
+
+            <h3>Risk Alert</h3>
+
+            <p>
+                You receive a Safe, Suspicious or
+                Scam classification.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features-section" id="about">
+
+    <div class="section-heading">
+
+        <div class="small-title">
+            SMART PROTECTION
+        </div>
+
+        <h2>Built to Protect Users</h2>
+
+        <p>
+            Powerful features designed to identify
+            suspicious communication quickly.
+        </p>
+
+    </div>
+
+
+    <div class="features">
+
+        <div class="feature-card">
+
+            <div class="feature-icon">⚡</div>
+
+            <h3>Instant Scanning</h3>
+
+            <p>
+                Analyze messages instantly without
+                manually checking suspicious content.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">🎯</div>
+
+            <h3>Risk Classification</h3>
+
+            <p>
+                Messages are categorized as Safe,
+                Suspicious or Scam.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">🔗</div>
+
+            <h3>Link Detection</h3>
+
+            <p>
+                Identify suspicious and potentially
+                dangerous links.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">🔔</div>
+
+            <h3>Smart Alerts</h3>
+
+            <p>
+                Warn users before they interact with
+                potentially harmful content.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        🛡️ ScamShield <span>AI</span>
+    </div>
+
+    <p>
+        AI-powered protection against scam messages.
+    </p>
+
+    <div class="footer-line"></div>
+
+    <p class="copyright">
+        © 2026 ScamShield AI. Student Project.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
